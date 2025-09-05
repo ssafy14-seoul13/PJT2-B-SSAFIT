@@ -1,0 +1,68 @@
+  /* 기본 글꼴/여백 정리 */
+  * {
+      box-sizing: border-box;
+  }
+
+  body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+  }
+
+  /* 헤더 바탕과 선 */
+  .header {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+  }
+
+  /* 가로 배치 */
+  .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+  }
+
+  /* 로고 */
+  .logo {
+      text-decoration: none;
+      color: #111;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+  }
+
+  .badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #2e7d32;
+      color: #fff;
+      display: inline-grid;
+      place-content: center;
+      font-size: 12px;
+  }
+
+  /* 메뉴들 */
+  .nav,
+  .user-menu {
+      display: flex;
+      gap: 16px;
+  }
+
+  .nav a,
+  .user-menu a {
+      text-decoration: none;
+      color: #111;
+      font-size: 14px;
+  }
+
+  /* 아주 간단한 반응형: 600px 이하에서는 가운데 메뉴 숨김 */
+  @media (max-width: 600px) {
+      .nav {
+          display: none;
+      }
+  }
