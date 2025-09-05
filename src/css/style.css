@@ -1,0 +1,125 @@
+/* 기존 기본 스타일 유지 */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.header {
+    background-color: #fff;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+}
+.header .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.header .nav a, .user-menu a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: #333;
+}
+
+.footer {
+    background-color: #fff;
+    padding: 1rem 0;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.container .page {
+    max-width: 500px; /* 기존 400px -> 500px로 넉넉하게 */
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* 마이페이지 전용 */
+.mypage-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
+#user-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #333;
+}
+
+#wishlist-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+#wishlist-container {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+#wishlist-container li {
+    padding: 12px 15px;
+    background-color: #fefefe;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.2s all;
+}
+
+#wishlist-container li:hover {
+    background-color: #f0f0f0;
+}
+
+#add-wishlist {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s all;
+    text-align: center;
+}
+
+#add-wishlist:hover {
+    background-color: #45a049;
+}
+
+/* 모바일 대응 */
+@media (max-width: 600px) {
+    .container .page {
+        padding: 1.5rem;
+    }
+
+    #user-name {
+        font-size: 1.4rem;
+    }
+
+    #add-wishlist {
+        padding: 10px;
+    }
+}
+
+.profile-section img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover; /* 이미지 비율 유지하며 잘림 방지 */
+}
