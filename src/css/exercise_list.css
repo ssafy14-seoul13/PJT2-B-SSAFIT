@@ -40,6 +40,7 @@ h4 {
   justify-content: space-between;
 }
 
+
 /* 2. 검색창 부분 */
 .search {
   display: flex;
@@ -111,6 +112,7 @@ h4 {
   background-color: #bebebe;
   color: #000000;
   border-color: #bebebe;
+
 }
 
 .inner-top {

@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   // -------------------
   // 1. HTML 요소 가져오기
   // -------------------
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const youtubePlayer = document.querySelector("#youtube-player");
 
   // 영상 추가/수정 모달 요소
+
   const videoFormModalEl = document.querySelector("#video-form-modal");
   const videoFormModal = new bootstrap.Modal(videoFormModalEl);
   const videoForm = document.querySelector("#video-form");
@@ -24,10 +26,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const videoChannelInput = document.querySelector("#video-channel-input");
   const videoPartInput = document.querySelector("#video-part-input");
 
+
   // 리뷰 관련 요소
   const reviewList = document.querySelector("#review-list");
   const reviewForm = document.querySelector("#review-form");
   const reviewInput = document.querySelector("#review-input");
+
 
   // -------------------
   // 2. 상태 및 데이터 관리 변수
@@ -39,12 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // -------------------
   // 3. 데이터 영속성 관련 함수 (localStorage)
   // -------------------
+
   const getVideosFromStorage = () => JSON.parse(localStorage.getItem("videos") || "[]");
   const saveVideosToStorage = () => localStorage.setItem("videos", JSON.stringify(videos));
   const getReviewsFromStorage = (videoId) =>
     videoId ? JSON.parse(localStorage.getItem(`reviews_${videoId}`) || "[]") : [];
   const saveReviewsToStorage = (videoId, reviews) =>
     videoId && localStorage.setItem(`reviews_${videoId}`, JSON.stringify(reviews));
+
 
   // 유튜브 URL에서 고유 ID를 추출하는 함수
   const getVideoIdFromUrl = (url) => {
@@ -95,29 +101,35 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!videoContainer) return;
     videoContainer.innerHTML = "";
     videoArray.forEach((video) => {
+
       const thumbnailUrl = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
       const cardHtml = `
                 <div class="col">
                     <div class="card h-100">
                         <div style="position: relative;">
+
                              <img src="${thumbnailUrl}" class="card-img-top" alt="${
         video.title
       }" style="cursor: pointer;"
+
                                  data-bs-toggle="modal" data-bs-target="#videoModal" 
                                  data-video-url="${video.url}" data-video-id="${video.id}">
                             
                             <div style="position: absolute; top: 10px; right: 10px; display: flex; gap: 5px;">
+
                                 <button class="btn btn-light btn-sm" data-action="edit-video" data-id="${
                                   video.id
                                 }">✏️</button>
                                 <button class="btn btn-danger btn-sm" data-action="delete-video" data-id="${
                                   video.id
                                 }">🗑️</button>
+
                             </div>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">${video.title}</h5>
                             <p class="card-text">${video.channelName}</p>
+
                             <p class="card-text"><small class="text-muted">조회수 ${(
                               video.viewCount || 0
                             ).toLocaleString()}회</small></p>
@@ -125,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>`;
       videoContainer.insertAdjacentHTML("beforeend", cardHtml);
+
     });
   }
 
@@ -135,21 +148,27 @@ document.addEventListener("DOMContentLoaded", () => {
       const reviewItem = document.createElement("div");
       reviewItem.className = "alert alert-light d-flex justify-content-between align-items-center";
 
+
       // 'isEditing' 상태에 따라 수정 UI 또는 일반 UI를 보여줌
+
       if (review.isEditing) {
         reviewItem.innerHTML = `
                     <input type="text" class="form-control" value="${review.text}" data-id="${review.id}">
                     <div>
                         <button class="btn btn-sm btn-success me-2" data-id="${review.id}" data-action="save-review">저장</button>
                         <button class="btn btn-sm btn-secondary" data-id="${review.id}" data-action="cancel-edit">취소</button>
+
                     </div>`;
+
       } else {
         reviewItem.innerHTML = `
                     <span>${review.text}</span>
                     <div>
                         <button class="btn btn-sm btn-outline-secondary me-2" data-id="${review.id}" data-action="edit-review">수정</button>
                         <button class="btn btn-sm btn-outline-danger" data-id="${review.id}" data-action="delete-review">삭제</button>
+
                     </div>`;
+
       }
       reviewList.appendChild(reviewItem);
     });
@@ -183,6 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 영상 추가/수정 폼 제출 이벤트
+
   videoForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const url = videoUrlInput.value;
@@ -195,6 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
       part: videoPartInput.value,
       channelName: videoChannelInput.value,
       url: `https://www.youtube.com/embed/${existingId || newVideoId}`,
+
       viewCount: existingId ? videos.find((v) => v.id === existingId).viewCount : 0,
     };
 
@@ -206,6 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // ID가 없으면 추가 모드
       if (newVideoId && !videos.some((v) => v.id === newVideoId)) {
         videos.unshift(videoData); // 새 영상을 맨 앞에 추가
+
       } else {
         alert("유효하지 않은 유튜브 URL이거나 이미 존재하는 영상입니다.");
         return;
@@ -213,6 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     saveVideosToStorage();
+
     updateDisplay();
     videoFormModal.hide(); // 모달 닫기
   });
@@ -223,11 +246,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = e.target.closest("button");
     if (button) {
       const { action, id } = button.dataset;
+
       if (action === "delete-video") {
         if (confirm("정말로 이 영상을 삭제하시겠습니까?")) {
           videos = videos.filter((v) => v.id !== id);
           saveVideosToStorage();
+
           updateDisplay();
+
         }
       } else if (action === "edit-video") {
         const videoToEdit = videos.find((v) => v.id === id);
@@ -336,4 +362,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   initialize(); // 앱 실행!
+
 });
