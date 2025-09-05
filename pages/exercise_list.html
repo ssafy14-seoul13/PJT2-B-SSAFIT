@@ -33,25 +33,55 @@
         <div class="exercise-header">
             <div class="exercise-header-title">
                 <h3>나에게 맞는 운동영상을 찾아보세요</h3>
-                <span>AI 추천으로 더 스마트한 운동 계획을 세워보세요</span>
+
             </div>
-            <form action="#">
-                <input type="text" placeholder="운동 종류, 부위, 강도로 검색해보세요!" />
-                <input type="submit">
-            </form>
+
             <div class="exercise-header-category">
             </div>
         </div>
-
+        <!-- 2. 검색창 & 검색버튼 & 검색키워드 -->
+        <form class="search" action="">
+            <div class="search-box">
+                <input type="text" placeholder="운동 종류, 부위, 강도로 검색해보세요">
+                <input type="submit" value="검색">
+            </div>
+            <div class="search-keyword">
+                <input type="radio" id="all" name="part" value="all" checked>
+                <label for="all">전체</label>
+                <input type="radio" id="upper" name="part" value="upper">
+                <label for="upper">상체</label>
+                <input type="radio" id="lower" name="part" value="lower">
+                <label for="lower">하체</label>
+                <input type="radio" id="full" name="part" value="full">
+                <label for="full">전신</label>
+                <input type="radio" id="cardio" name="part" value="cardio">
+                <label for="cardio">유산소</label>
+                <input type="radio" id="strength" name="part" value="strength">
+                <label for="strength">근력</label>
+                <input type="radio" id="yoga" name="part" value="yoga">
+                <label for="yoga">요가</label>
+                <input type="radio" id="pilates" name="part" value="pilates">
+                <label for="pilates">필라테스</label>
+            </div>
+        </form>
         <div class="exercise-list">
             <div class="exercise-list-header">
                 <h3>인기 운동영상</h3>
-                <div>
+                <div class="d-flex align-items-center">
+                    <div class="btn-group me-3" role="group" id="sort-btn-group">
+                        <button type="button" class="btn btn-outline-secondary btn-sm sort-btn active"
+                            data-sort="latest">최신순</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm sort-btn" data-sort="reviews">리뷰
+                            많은순</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm sort-btn"
+                            data-sort="views">조회수순</button>
+                    </div>
+
                     <button id="add-video-btn" class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#video-form-modal">
                         새 영상 추가
                     </button>
-                    <span class="ms-2">더보기 -></span>
+
                 </div>
             </div>
             <div>
