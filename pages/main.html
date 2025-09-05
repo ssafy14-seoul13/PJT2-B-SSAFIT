@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSAFIT 메인페이지</title>
+    <!-- (공통 시작) bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/src/css/header.css">
+    <link rel="stylesheet" href="/src/css/footer.css">
+    <!-- (공통 끝) bootstrap css -->
+    <link rel="stylesheet" href="/src/css/main.css">
+</head>
+
+<body>
+    <!-- (공통) 헤더 -->
+    <header class="header">
+        <div class="inner">
+            <!-- 왼쪽: 로고 -->
+            <a href="#" class="logo"><span class="badge">S</span> SSAFIT</a>
+
+            <!-- 가운데: 메뉴 -->
+            <nav class="nav">
+                <a href="#">운동영상</a>
+                <a href="#">커뮤니티</a>
+                <a href="#">운동계획</a>
+            </nav>
+
+            <!-- 오른쪽: 사용자 메뉴 -->
+            <div class="user-menu">
+                <a href="#">찜</a>
+                <a href="#">마이페이지</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 -->
+    <main>
+        <!-- 1. 메인 이미지 및 메인 내용 -->
+        <div class="main-title">
+            <h2>나에게 맞는 운동영상을 찾아보세요</h2>
+        </div>
+
+        <!-- 2. 검색창 & 검색버튼 & 검색키워드 -->
+        <form class="search" action="">
+            <div class="search-box">
+                <input type="text" placeholder="운동 종류, 부위, 강도로 검색해보세요">
+                <input type="submit" value="검색">
+            </div>
+            <div class="search-keyword">
+                <input type="radio" id="all" name="part" value="all" checked>
+                <label for="all">전체</label>
+                <input type="radio" id="upper" name="part" value="upper">
+                <label for="upper">상체</label>
+                <input type="radio" id="lower" name="part" value="lower">
+                <label for="lower">하체</label>
+                <input type="radio" id="full" name="part" value="full">
+                <label for="full">전신</label>
+                <input type="radio" id="cardio" name="part" value="cardio">
+                <label for="cardio">유산소</label>
+                <input type="radio" id="strength" name="part" value="strength">
+                <label for="strength">근력</label>
+                <input type="radio" id="yoga" name="part" value="yoga">
+                <label for="yoga">요가</label>
+                <input type="radio" id="pilates" name="part" value="pilates">
+                <label for="pilates">필라테스</label>
+            </div>
+        </form>
+
+        <!-- 3. 인기 운동 영상 -->
+        <div class="section-exercise">
+            <div class="exercise-title">
+                <h3>인기 운동 영상</h3>
+                <a href="#">더보기 ></a>
+            </div>
+        </div>
+
+        <!-- 4. AI 맞춤 추천 & 오늘의 운동 추천 & 새로운 도전 -->
+        <div class="section-ai">
+            <div class="ai-title">
+                <h3>AI 맞춤 추천</h3>
+                <span>당신의 운동 기록을 바탕으로 추천해드려요</span>
+            </div>
+            <div class="ai-col">
+                <div class="card">
+                    <span>오늘의 운동 추천</span>
+                    <span>상체 근력 강화</span>
+                    <a href="#">운동 시작하기</a>
+                </div>
+                <div class="card">
+                    <span>새로운 도전</span>
+                    <span>필라테스 입문</span>
+                    <a href="#">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. 최신 리뷰 -->
+        <div class="section-review">
+            <div class="review-title">
+                <h3>최신 리뷰</h3>
+                <a href="#">더보기 > </a>
+            </div>
+            <div class="review">
+                <div class="card">
+                    <div class="info">
+                        <span>김요가</span>
+                        <span>⭐⭐⭐⭐⭐</span>
+                        <span>4시간 전</span>
+                    </div>
+                    <div class="content">
+                        <span>10분 전신 운동</span>
+                        <span>정말 효과적인 운동이에요! 매일 따라하고 있습니다.</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="info">
+                        <span>박헬스</span>
+                        <span>⭐⭐⭐⭐</span>
+                        <span>5시간 전</span>
+                    </div>
+                    <div class="content">
+                        <span>하체 근력 강화 루틴</span>
+                        <span>동작이 정확하고 설명이 친절해서 좋아요.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- (공통) 푸터 -->
+    <footer class="footer">
+        <div class="ft__wrap">
+            <strong class="ft__brand">SSAFIT</strong>
+            <nav class="ft__nav">
+                <a href="#">운동영상</a>
+                <a href="#">커뮤니티</a>
+                <a href="#">운동계획</a>
+                <a href="#">마이페이지</a>
+            </nav>
+        </div>
+        <small class="ft__copy">© 2025 SSAFIT</small>
+    </footer>
+
+    <!-- (공통) bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
