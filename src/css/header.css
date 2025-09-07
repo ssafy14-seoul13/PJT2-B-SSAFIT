@@ -9,9 +9,12 @@
   }
 
   /* 헤더 바탕과 선 */
-  .header {
-      background: #fff;
-      border-bottom: 1px solid #e5e7eb;
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08); /* 그림자 */
   }
 
   /* 가로 배치 */
